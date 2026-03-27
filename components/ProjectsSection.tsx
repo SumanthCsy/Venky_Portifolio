@@ -90,12 +90,15 @@ export function ProjectsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-10">
           {projects.map((project, idx) => (
-            <div
+            <a
               key={idx}
+              href={`https://${project.name}`}
+              target="_blank"
+              rel="noopener noreferrer"
               ref={(el) => {
-                if (el) projectsRef.current[idx] = el
+                if (el) projectsRef.current[idx] = el as any
               }}
-              className="group relative h-96 overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-card/80 to-card/20 backdrop-blur-3xl p-10 hover:border-primary/50 transition-all duration-700 shadow-2xl hover:shadow-primary/20 cursor-pointer"
+              className="group relative h-96 overflow-hidden rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-card/80 to-card/20 backdrop-blur-3xl p-10 hover:border-primary/50 transition-all duration-700 shadow-2xl hover:shadow-primary/20 block"
               style={{ transformStyle: 'preserve-3d' }}
             >
               {/* Inner Glow */}
@@ -137,7 +140,7 @@ export function ProjectsSection() {
               <div className="absolute -right-4 -bottom-4 text-9xl font-black text-white/5 select-none -z-10 italic">
                 {idx + 1}
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
